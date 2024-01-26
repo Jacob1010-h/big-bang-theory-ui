@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 
 import { Col, Container, Row, Spinner } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -26,11 +26,10 @@ function App() {
     return episode;
   }
 
-  const { isLoading, error, data } = useQuery('episodes', () =>
-    fetch("https://rickandmortyapi.com/api/episode").then(res =>
-      res.json()
-    )
-  );
+  const { isLoading, error, data } = useQuery({
+    queryKey: ['episodes'],
+    queryFn: () => fetch("https://rickandmortyapi.com/api/episode").then(res => res.json())
+  });
 
   const episodeList = data?.results;
 

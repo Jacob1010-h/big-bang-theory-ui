@@ -1,5 +1,5 @@
 import { Card } from "react-bootstrap";
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import './MyCard.css'; // Import the CSS file
 import LoadingSpinner from './LoadingSpinner';
 import ErrorDisplay from './ErrorDisplay';
@@ -26,7 +26,9 @@ export default function MyCard({ title, text, items, handleItemClick }: { title:
             console.error('There was an error!', error);
         });
 
-    const { data, isLoading, error } = useQuery(['itemData', items], () => Promise.all(items?.filter(isValidURL).map(fetchItem) || []), {
+    const { data, isLoading, error } = useQuery({
+        queryKey: ['itemData', items],
+        queryFn: () => Promise.all(items?.filter(isValidURL).map(fetchItem) || []),
         enabled: !!items,
     });
 
