@@ -1,7 +1,7 @@
 :root {
   --primary-color: #282c34;
-  --secondary-color: #61dafb;
-  --text-color: white;
+  --bg-color: rgb(255, 255, 255);
+  --text-color: rgb(0, 0, 0);
 }
 
 .App {
@@ -14,4 +14,15 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: var(--text-color);
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-text {
+  background-color: var(--bg-color);
+  filter: brightness(95%);
+  border-radius: 0.2em;
 }

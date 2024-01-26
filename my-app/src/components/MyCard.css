@@ -1,0 +1,27 @@
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    flex: 1 0 auto; /* This will allow the card body to grow and shrink as needed */
+    padding: 10px; /* Add some padding */
+}
+
+.button-group {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.button-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+}
+
+.button-content img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
