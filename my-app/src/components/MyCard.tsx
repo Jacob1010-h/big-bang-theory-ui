@@ -32,25 +32,25 @@ export default function MyCard({ title, text, items, handleItemClick }: { title:
 
     if (isLoading) return <LoadingSpinner />;
 
-if (error) return <ErrorDisplay error={error as Error} />;
+    if (error) return <ErrorDisplay error={error as Error} />;
 
-return (
-    <div className="card">
-        <Card style={{ width: '100%' }}>
-            <Card.Body>
-                <Card.Title>{title}</Card.Title>
-                <div className="card-text">
-                    <Card.Text className="button-group">
-                        {text}
-                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>
-                            {items?.map((item, index) => (
-                                <Item item={item} data={data && typeof data[index] === 'object' ? data[index] : null} index={index} handleItemClick={handleItemClick} />
-                            ))}
-                        </div>
-                    </Card.Text>
-                </div>
-            </Card.Body>
-        </Card>
-    </div>
-);
-                            }
+    return (
+        <div className="card">
+            <Card style={{ width: '100%' }}>
+                <Card.Body>
+                    <Card.Title>{title}</Card.Title>
+                    <div className="card-text">
+                        <Card.Text className="button-group">
+                            {text}
+                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>
+                                {items?.map((item, index) => (
+                                    <Item item={item} data={data && typeof data[index] === 'object' ? data[index] : null} index={index} handleItemClick={handleItemClick} />
+                                ))}
+                            </div>
+                        </Card.Text>
+                    </div>
+                </Card.Body>
+            </Card>
+        </div>
+    );
+}
