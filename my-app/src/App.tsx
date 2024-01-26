@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { useQuery } from 'react-query';
 
-import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyCard from "./components/MyCard";
 
@@ -15,14 +15,14 @@ function App() {
   const [selectedEpisodeName, setSelectedEpisode] = React.useState<string>("");
 
   const handleEpisodeClick = (e: any) => {
-    console.log(e.target.textContent);
+    // console.log(e.target.textContent);
     setSelectedEpisode(e.target.textContent);
   }
 
   const findEpisode = (episodeName: string = ""): Episode | undefined => {
-    console.log(episodeName);
+    // console.log(episodeName);
     const episode = episodeList.find((episode: { name: string; }) => episode.name === episodeName);
-    console.log(episode);
+    // console.log(episode);
     return episode;
   }
 
